@@ -1,5 +1,4 @@
-
-def count_primitives(p,i):
+def count_primitives(p, i):
     for j in range(1, p):
         flag = True
         for m in range(1, p - 1):
@@ -8,10 +7,11 @@ def count_primitives(p,i):
                 break
         if flag:
             print(j)
-            i += 1        
+            i += 1
     return i
+
 
 p = 37
 i = 0
-count = count_primitives(p,i)
+count = count_primitives(p, i)
 print("count =", count)

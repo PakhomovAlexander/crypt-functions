@@ -19,19 +19,18 @@ def get_b(q, m, y):
 
     return b
 
-def get_ab(m,q,x,y):
-    return (get_b(q, m, x), get_b(q, m, y))
+
+def get_ab(m, q, x, y):
+    return get_b(q, m, x), get_b(q, m, y)
+
 
 def get_gamma(key):
     arr = []
     for i in str(key):
         arr.append(int(i))
-    
+
     return arr
 
+# print(get_b(q, m, y))
 
-#print(get_b(q, m, y))
-
-#print(get_gamma(m, 17809, x))
-
-
+# print(get_gamma(m, 17809, x))
