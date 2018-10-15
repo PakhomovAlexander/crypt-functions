@@ -98,5 +98,5 @@ m4 = pow_h(m3, b1, P)
 # m4 = 48820618897
 
 # print(m4)
-print(decode_text(m4))
+#print(decode_text(m4))
 # print(pow_h(b, phi(P-1), P - 1))
