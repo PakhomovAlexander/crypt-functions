@@ -6,14 +6,19 @@ from Functions import pow_h
 # A = 000001 ,..., Я = 1000000
 alphabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 
-w = [1, 2, 4, 9, 18, 35]
-q = 80
-r = 29
+# w = [1, 2, 4, 9, 18, 35]
+# q = 80
+# r = 29
+# x = [55, 97, 21, 79, 100, 155]
 
-x = [55, 97, 21, 79, 100, 155]
+w = [1, 3, 6, 13, 29, 59]
+q = 190
+r = 31
+x = [328, 116, 212, 119, 258, 162, 325]
 
 def merkle_hellman(q, r, w, x):
     w = w[::-1]
+    print(w)
     n = len(w)
 
     r1 = 1
@@ -22,13 +27,13 @@ def merkle_hellman(q, r, w, x):
 
     i = 0
     s = []
-    while i < n:
+    while i <= n:
         s = s + [x[i] * r1 % q]
         i = i + 1
 
     result = ""
     i = 0
-    while i < n:
+    while i <= n:
         val = 0
         j = 0
         while j < n:
