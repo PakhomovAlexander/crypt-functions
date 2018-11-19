@@ -34,24 +34,6 @@ def bezout(a, b):
         y, yy = yy, y - yy*q
     return (x, y, a)
 
-
-# def extd_evklid(a, b, c):
-#     r1 = a
-#     r2 = b
-#     x1 = 1
-#     x2 = 0
-#     r = r1−(q∗r2)
-#     while r != 0:
-#         q = r1 // r2
-#         r = r1−(q∗r2)
-#         r1 = r2
-#         r2 = r
-#         x = x1−(q∗x2)
-#         x1 = x2
-#         x2 = x
-#
-#     return  (r1, x1)
-
 def gcd(a, b):
     while b:
         a, b=b, a%b
