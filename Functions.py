@@ -8,6 +8,13 @@ m3 = 34_979_060_413
 
 
 def pow_h(base, degree, module):
+    if degree < 0 :
+        d = 1
+        deg = base**abs(degree)
+        while deg*d % module != 1:
+            d += 1
+        return d
+
     degree = bin(degree)[2:]
     r = 1
 
@@ -35,9 +42,43 @@ def bezout(a, b):
     return (x, y, a)
 
 def gcd(a, b):
-    while b:
-        a, b=b, a%b
-    return a
+    while a > 0 and b > 0:
+        if a >= b:
+            a = a % b
+        else:
+            b = b % a
+    return max(a, b)
+
+
+def extended_gcd(a, b):
+    p = 1
+    q = 0
+    r = 0
+    s = 1
+
+    while a != 0 and b != 0:
+        if a >= b:
+            a = a - b
+            p = p - r
+            q = q - s
+        else:
+            b = b - a
+            r = r - p
+            s = s - q
+    if a != 0:
+        x = p
+        y = q
+    else:
+        x = r
+        y = s
+    return x, y
+
+
+def diophantine(a, b, c):
+    (u, v) = extended_gcd(a, b)
+    x = u * (c // gcd(a, b))
+    y = v * (c // gcd(a, b))
+    return x, y
 
 def phi(a):
     b=a-1

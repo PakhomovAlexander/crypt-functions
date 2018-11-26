@@ -6,27 +6,41 @@ from Functions import pow_h, gcd, phi
 
 # А и Б обменимаются сообщениями используя гаммирование, для формарования гаммы они применяют алгоритм RSA,
 
-rB = 71361259
-b = 74671
-m1 = 3942877
-
-text = "ДМТЭЕСХ"
-
-
-beta = 2
-# fi = phi(rB) //todo: написать реализацию phi быструю!!!
-fi = 71344240
-print(fi)
-
-# while beta * b % fi != 1:
-#     beta += 1
+# rB = 71361259
+# b = 74671
+# m1 = 3942877
 #
-# print(beta)
+# text = "ДМТЭЕСХ"
+#
+#
+# beta = 2
+# # fi = phi(rB) //todo: написать реализацию phi быструю!!!
+# fi = 71344240
+# print(fi)
+#
+# # while beta * b % fi != 1:
+# #     beta += 1
+# #
+# # print(beta)
+#
+# beta = 33289711
+#
+# m2 = pow_h(m1, beta, rB)
+# print(m2)
+#
+# print(decode(text, [3,7,7,9,5,0,3,1]))
+# #БЕЛФАСТ
+from CRYPTO.Functions import diophantine
 
-beta = 33289711
+rA = 399799
+a = 4397
+b = 7517
 
-m2 = pow_h(m1, beta, rB)
-print(m2)
+m1 = 268100
+m2 = 263851
 
-print(decode(text, [3,7,7,9,5,0,3,1]))
-#БЕЛФАСТ
+(x, y) = diophantine(a,b,1)
+
+m = pow_h(m1, x, rA) * pow_h(m2, y, rA) % rA
+
+print(m)
